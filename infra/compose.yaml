@@ -1,0 +1,13 @@
+# Para subir o serviço em backgroud: "docker compose -f infra/compose.yaml up -d"
+# Para forçar a recriação do conteiner: "docker compose -f infra/compose.yaml up -d --force-recreate"
+# Para listar os conteiners existentes: "docker ps -a"
+# Para listar os logs: "docker logs <nome_conteiner>"
+# Para instalar o client SQL do postgres: "sudo apt install postgresql-client"
+# Para se conectar via terminal: "psql --host=localhost --username=postgres --port=5432"
+services:
+  database:
+    image: "postgres:16.2-alpine3.19"
+    environment:
+      POSTGRES_PASSWORD: "local_password"
+    ports:
+      - "5432:5432"
